@@ -1,10 +1,11 @@
-endpoint: https://us1.prisma.sh/rachel-4344cb/siccccck-fits/dev
-datamodel: datamodel.prisma
-
-generate:
-  - generator: javascript-client
-    output: ./generated/prisma
-
+endpoint: ${env:PRISMA_ENDPOINT}
+datamodel: datamodel.graphql
+#secret: ${env:PRISMA_SECRET}
+#
+#generate:
+#  - generator: javascript-client
+#    output: ./generated/prisma
+#
 hooks:
   post-deploy:
-    - prisma generate
+    - graphql get-schema -p prisma
