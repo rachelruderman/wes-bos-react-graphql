@@ -6,7 +6,6 @@ const Mutations = {
                 ...args
             }
         }, info);
-        
         return item;
     }
 };
