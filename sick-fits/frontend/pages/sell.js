@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import CreateItem from '../components/CreateItem';
 
-const Home = props => {
-    return <p>Hey again</p>;
+const Sell = props => {
+    return <div>
+        <CreateItem/>
+    </div>;
 }
 
-export default Home;
+export default Sell;
