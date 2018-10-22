@@ -4,6 +4,8 @@ import {ApolloProvider} from 'react-apollo';
 import withData from '../lib/withData';
 
 class MyApp extends App {
+
+    //This is a Nextjs lifecycle method that will run before the first render
     static async getInitialProps({ Component, ctx}){
         let pageProps = {}
         if(Component.getInitialProps){
@@ -13,6 +15,7 @@ class MyApp extends App {
         pageProps.query = ctx.query;
         return {pageProps};
     }
+    
     render() {
         const {Component, apollo, pageProps} = this.props;
 
