@@ -41,7 +41,7 @@ export default class Items extends Component {
                     if (error)   return <p>Error: {error.message}</p>
 
                     return (
-                        <ItemsList>
+                        <ItemsList page={this.props.page}>
                             {data.items.map( (item) => <Item key={item.id} item={item}/>)}
                         </ItemsList>
                     )
