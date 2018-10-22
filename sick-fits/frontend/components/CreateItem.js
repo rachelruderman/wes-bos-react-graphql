@@ -124,7 +124,7 @@ export default class CreateItem extends Component {
                 placeholder='Enter a Description' 
                 required/>
             </label>
-            <button type='submit'>Submit</button>
+            <button type='submit'>Submit{loading ? 'ting' : ''}</button>
           </fieldset>
         </Form>
       )}
