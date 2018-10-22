@@ -39,7 +39,7 @@ const Mutations = {
 
     async signUp(parent, args, ctx, info){
         const email     = args.email.toLowerCase();
-        const password  = await bcrypt.hash(args.password, 32);
+        const password  = await bcrypt.hash(args.password, 10);
 
         const user      = await ctx.db.mutation.createUser({
             data: {
