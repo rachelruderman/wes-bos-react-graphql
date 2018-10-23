@@ -30,18 +30,20 @@ type Mutation {
 
 type Query {
 
+  item(
+    where:          ItemWhereUniqueInput!
+  ): Item
+
   items(
     where:          ItemWhereInput, 
     orderBy:        ItemOrderByInput, 
     skip:           Int, 
     first:          Int
-    ): [Item]!
-
-  item(
-    where:          ItemWhereUniqueInput!
-  ): Item
+  ): [Item]!
 
   itemsConnection(
     where:          ItemWhereInput
   ): ItemConnection!
+
+  me: User
 }
