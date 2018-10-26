@@ -37,6 +37,34 @@ const Mutations = {
         }, info);
     },
 
+    async signIn(parent, {email, password}, ctx, info){
+        // check if user exists
+        const user = await ctx.db.query.user({
+            where: {email: email.toLowerCase()}
+        })
+
+        if (!user) throw new Error(`No such user`);
+    
+        //check if password matches
+
+        //generate jwt token
+
+        //set the cookie with the token
+
+        //return user
+
+
+        //create the JWT token for them
+        const token = jwt.sign({userId: user.id}, process.env.APP_SECRET);
+        // We set the jwt as a cookie on the response
+        ctx.response.cookie('token', token, {
+            httpOnly:   true,
+            maxAge:     (1000 * 60 * 60 * 24 * 365) // 1 year cookie
+        });
+        // Finally we return the user to the browser
+        return user;
+    },
+
     async signUp(parent, args, ctx, info){
         const email     = args.email.toLowerCase();
         const password  = await bcrypt.hash(args.password, 10);
